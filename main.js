@@ -149,15 +149,15 @@ addBook = () => {
 };
 
 searchData = (e) => {
-  e = e.target.value;
+  e = e.target.value.trim().toLowerCase();
 
   let getByTitle = books.filter((book) =>
-    book.title.trim().toLowerCase().includes(e.trim().toLowerCase())
+    book.title.trim().toLowerCase().includes(e)
   );
   let getByAuthor = books.filter((book) =>
-    book.author.trim().toLowerCase().includes(e.trim().toLowerCase())
+    book.author.trim().toLowerCase().includes(e)
   );
-  let getByYear = books.filter((book) => book.year.trim().includes(e.trim()));
+  let getByYear = books.filter((book) => book.year.trim().includes(e));
 
   localStorage.getItem('book') == null || books == []
     ? popToast(
